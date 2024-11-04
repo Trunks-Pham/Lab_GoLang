@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package testgrpc;
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+  rpc SendMessage (MessageRequest) returns (MessageResponse);
+  rpc ReceiveMessage (MessageRequest) returns (stream MessageResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
+message MessageRequest {
+  string from = 1;
+  string message = 2;
+}
+
+message MessageResponse {
+  string message = 1;
+}
